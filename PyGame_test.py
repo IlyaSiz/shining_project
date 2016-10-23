@@ -3,7 +3,7 @@
 
 # Импортируем библиотеку pygame
 import pygame, sys
-from pygame import *
+from pygame.locals import *
 from player import Player
 from blocks import *
 
@@ -11,7 +11,7 @@ from blocks import *
 WIN_WIDTH = 800  # Ширина создаваемого окна
 WIN_HEIGHT = 640  # Высота
 DISPLAY = (WIN_WIDTH, WIN_HEIGHT)  # Группируем ширину и высоту в одну переменную
-BACKGROUND_COLOR = "#444444" #"#004400"
+BACKGROUND_COLOR = "#333333" #"#004400"
 
 def main():
     hero = Player(55, 55)  # создаем героя по (x,y) координатам
@@ -60,13 +60,13 @@ def main():
     # будем использовать как фон
     bg.fill(Color(BACKGROUND_COLOR))  # Заливаем поверхность сплошным цветом
 
-    done = True
+    mainLoop = True
 
-    while done:  # Основной цикл программы
+    while mainLoop :  # Основной цикл программы
         timer.tick(60)
         for e in pygame.event.get():  # Обрабатываем события
             if e.type == pygame.QUIT:
-                done = False
+                mainLoop = False
                 #pygame.quit()
                 #sys.exit()
                 #raise(SystemExit, "QUIT")
